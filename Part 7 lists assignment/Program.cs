@@ -10,6 +10,8 @@ namespace Part_7_lists_assignment
     {
         static void Main(string[] args)
         {
+            Random generator = new Random();
+            List<int> rndm = new List<int>(24);
         }
     }
 }
