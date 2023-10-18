@@ -87,13 +87,19 @@ namespace Part_7_lists_assignment
                 }
                 else if (choose == 3)
                 {
-                    Remove();
+                    Console.Write("Please input a number to remove:");
+                    int remove = Convert.ToInt32(Console.ReadLine());
+                    nums.Remove(remove);
+                    
                     Console.WriteLine();
                     Console.WriteLine();
                 }
                 else if (choose == 4)
                 {
-                    Add();
+                    Console.Write("Please input a number to add:");
+                    int add = Convert.ToInt32(Console.ReadLine());
+                    nums.Add(add);
+
                     Console.WriteLine();
                     Console.WriteLine();
                 }
