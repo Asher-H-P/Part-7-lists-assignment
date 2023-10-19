@@ -49,9 +49,8 @@ namespace Part_7_lists_assignment
                 Console.WriteLine("6. Show Largest");
                 Console.WriteLine("7. Show Smallest");
                 Console.WriteLine("8. The Sum And Average");
-                Console.WriteLine("9. Show Most Frequent");
-                Console.WriteLine("10. How Often A Number Occurs");
-                Console.WriteLine("11. Quit");
+                Console.WriteLine("9. How Often A Number Occurs");
+                Console.WriteLine("10. Quit");
                 choose = Convert.ToInt32(Console.ReadLine());
                 if (choose == 1)
                 {
@@ -65,7 +64,7 @@ namespace Part_7_lists_assignment
                     while (!done)
                     {
 
-                        if (fin <= 24)
+                        if (fin < nums.Count)
                         {
 
                             for (int i = 0; i < nums.Count; i++)
@@ -75,7 +74,7 @@ namespace Part_7_lists_assignment
                                 fin = fin + 1;
                             }
                         }
-                        else if (fin == 25)
+                        else if (fin == nums.Count)
                         {
                             done = true;
                         }
@@ -89,17 +88,22 @@ namespace Part_7_lists_assignment
                 {
                     Console.Write("Please input a number to remove:");
                     int remove = Convert.ToInt32(Console.ReadLine());
-                    nums.Remove(remove);
-                    
+                    foreach (int i in nums)
+                    {
+                        Console.Write(i + " ");
+                    }
                     Console.WriteLine();
                     Console.WriteLine();
                 }
                 else if (choose == 4)
                 {
                     Console.Write("Please input a number to add:");
-                    int add = Convert.ToInt32(Console.ReadLine());
-                    nums.Add(add);
-
+                    int[] add = new int[] {Convert.ToInt32(Console.ReadLine())};
+                    nums.AddRange(add);
+                    foreach (int i in nums)
+                    {
+                        Console.Write(i + " ");
+                    }
                     Console.WriteLine();
                     Console.WriteLine();
                 }
@@ -112,7 +116,7 @@ namespace Part_7_lists_assignment
                 else if (choose == 6)
                 {
                     nums.Sort();
-                    Console.WriteLine(nums[24]);
+
                     Console.WriteLine();
                     Console.WriteLine();
                 }
@@ -125,28 +129,23 @@ namespace Part_7_lists_assignment
                 }
                 else if (choose == 8)
                 {
-                    SumAndAverage();
+                    Console.Write("The sum of all the numbers are: ");
+                    
                     Console.WriteLine();
                     Console.WriteLine();
                 }
                 else if (choose == 9)
                 {
-                    MostFrequent();
+                    SelectOccurrensses();
                     Console.WriteLine();
                     Console.WriteLine();
                 }
                 else if (choose == 10)
                 {
-                    SelectOccurrensses();
-                    Console.WriteLine();
-                    Console.WriteLine();
-                }
-                else if (choose == 11)
-                {
                     Console.WriteLine("Goodbye");
                     done = true;
                 }
-                else if (choose >= 12 || choose <= 0)
+                else if (choose >= 11 || choose <= 0)
                 {
                     Console.WriteLine("Error! Input invalid!");
                     Console.WriteLine();
