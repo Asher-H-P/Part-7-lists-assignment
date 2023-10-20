@@ -55,7 +55,10 @@ namespace Part_7_lists_assignment
                 if (choose == 1)
                 {
                     nums.Sort();
-                    Console.WriteLine(nums[0] + " " + nums[1] + " " + nums[2] + " " + nums[3] + " " + nums[4] + " " + nums[5] + " " + nums[6] + " " + nums[7] + " " + nums[8] + " " + nums[9] + " " + nums[10] + " " + nums[11] + " " + nums[12] + " " + nums[13] + " " + nums[14] + " " + nums[15] + " " + nums[16] + " " + nums[17] + " " + nums[18] + " " + nums[19] + " " + nums[20] + " " + nums[21] + " " + nums[22] + " " + nums[23] + " " + nums[24]);
+                    foreach (int i in nums)
+                    {
+                        Console.Write(i + " ");
+                    }
                     Console.WriteLine();
                     Console.WriteLine();
                 }
@@ -88,6 +91,7 @@ namespace Part_7_lists_assignment
                 {
                     Console.Write("Please input a number to remove:");
                     int remove = Convert.ToInt32(Console.ReadLine());
+                    nums.Remove(remove);
                     foreach (int i in nums)
                     {
                         Console.Write(i + " ");
@@ -109,14 +113,20 @@ namespace Part_7_lists_assignment
                 }
                 else if (choose == 5)
                 {
-                    Count();
+                    Console.Write("Please input a number and I'll show you how many times it appears:");
+                    int count = Convert.ToInt32(Console.ReadLine());
+                    nums.Sort();
+                    nums.FindAll(x => x == count);
+                    Console.WriteLine(nums.FindAll(x => x == count));
                     Console.WriteLine();
                     Console.WriteLine();
                 }
                 else if (choose == 6)
                 {
                     nums.Sort();
-
+                    nums.Reverse();
+                    Console.WriteLine(nums[0]);
+                    nums.Sort();
                     Console.WriteLine();
                     Console.WriteLine();
                 }
@@ -153,15 +163,12 @@ namespace Part_7_lists_assignment
                 }
             }
         }
-        public static void Remove()
-        {
-            Console.Write("Please pick a number to remove: ");
-            int remove = Convert.ToInt32(Console.ReadLine());
-        }
-        public static void Add()
-        {
 
+        public static bool FindLast(List<int> nums)
+        {
+            throw new NotImplementedException();
         }
+
         public static void Count()
         {
 
