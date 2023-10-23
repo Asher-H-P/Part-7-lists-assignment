@@ -49,8 +49,7 @@ namespace Part_7_lists_assignment
                 Console.WriteLine("6. Show Largest");
                 Console.WriteLine("7. Show Smallest");
                 Console.WriteLine("8. The Sum And Average");
-                Console.WriteLine("9. How Often A Number Occurs");
-                Console.WriteLine("10. Quit");
+                Console.WriteLine("9. Quit");
                 choose = Convert.ToInt32(Console.ReadLine());
                 if (choose == 1)
                 {
@@ -89,7 +88,7 @@ namespace Part_7_lists_assignment
                 }
                 else if (choose == 3)
                 {
-                    Console.Write("Please input a number to remove:");
+                    Console.Write("Please input a number to remove: ");
                     int remove = Convert.ToInt32(Console.ReadLine());
                     nums.Remove(remove);
                     foreach (int i in nums)
@@ -101,7 +100,7 @@ namespace Part_7_lists_assignment
                 }
                 else if (choose == 4)
                 {
-                    Console.Write("Please input a number to add:");
+                    Console.Write("Please input a number to add: ");
                     int[] add = new int[] {Convert.ToInt32(Console.ReadLine())};
                     nums.AddRange(add);
                     foreach (int i in nums)
@@ -113,11 +112,14 @@ namespace Part_7_lists_assignment
                 }
                 else if (choose == 5)
                 {
-                    Console.Write("Please input a number and I'll show you how many times it appears:");
+                    Console.Write("Please input a number and I'll show you how many times it appears: ");
                     int count = Convert.ToInt32(Console.ReadLine());
                     nums.Sort();
-                    nums.FindAll(x => x == count);
-                    Console.WriteLine(nums.FindAll(x => x == count));
+                    int i = -1000000;
+                    int j = 1000000;
+                    Console.WriteLine(nums.Count);
+                    Console.WriteLine();
+                    Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine();
                 }
@@ -146,16 +148,10 @@ namespace Part_7_lists_assignment
                 }
                 else if (choose == 9)
                 {
-                    SelectOccurrensses();
-                    Console.WriteLine();
-                    Console.WriteLine();
-                }
-                else if (choose == 10)
-                {
                     Console.WriteLine("Goodbye");
                     done = true;
                 }
-                else if (choose >= 11 || choose <= 0)
+                else if (choose >= 10 || choose <= 0)
                 {
                     Console.WriteLine("Error! Input invalid!");
                     Console.WriteLine();
