@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Part_7_lists_assignment
@@ -48,8 +49,7 @@ namespace Part_7_lists_assignment
                 Console.WriteLine("5. Count One Number");
                 Console.WriteLine("6. Show Largest");
                 Console.WriteLine("7. Show Smallest");
-                Console.WriteLine("8. The Sum And Average");
-                Console.WriteLine("9. Quit");
+                Console.WriteLine("8. Quit");
                 choose = Convert.ToInt32(Console.ReadLine());
                 if (choose == 1)
                 {
@@ -113,12 +113,8 @@ namespace Part_7_lists_assignment
                 else if (choose == 5)
                 {
                     Console.Write("Please input a number and I'll show you how many times it appears: ");
-                    int count = Convert.ToInt32(Console.ReadLine());
-                    nums.Sort();
-                    int i = -1000000;
-                    int j = 1000000;
-                    Console.WriteLine(nums.Count);
-                    Console.WriteLine();
+                    int numToCount = Convert.ToInt32(Console.ReadLine());
+                    int count = 0;
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine();
@@ -141,45 +137,30 @@ namespace Part_7_lists_assignment
                 }
                 else if (choose == 8)
                 {
-                    Console.Write("The sum of all the numbers are: ");
-                    
-                    Console.WriteLine();
-                    Console.WriteLine();
-                }
-                else if (choose == 9)
-                {
                     Console.WriteLine("Goodbye");
                     done = true;
                 }
-                else if (choose >= 10 || choose <= 0)
+                else if (choose >= 9 || choose <= 0)
                 {
                     Console.WriteLine("Error! Input invalid!");
                     Console.WriteLine();
                     Console.WriteLine();
                 }
             }
+            Console.WriteLine();
+            Console.WriteLine();
+            Veggies();
         }
 
-        public static bool FindLast(List<int> nums)
+        public static void Veggies()
         {
-            throw new NotImplementedException();
-        }
-
-        public static void Count()
-        {
-
-        }
-        public static void SumAndAverage()
-        {
-
-        }
-        public static void MostFrequent()
-        {
-
-        }
-        public static void SelectOccurrensses()
-        {
-
+            List<string> veggies = new List<string>() {"CARROT", "BEET", "CELERY", "RADISH", "CABBAGE"};
+            foreach (string v in veggies)
+            {
+                Console.WriteLine(v);
+            }
+            Console.WriteLine();
+            Console.WriteLine();
         }
     }
 }
