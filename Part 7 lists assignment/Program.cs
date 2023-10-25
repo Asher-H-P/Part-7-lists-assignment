@@ -115,6 +115,7 @@ namespace Part_7_lists_assignment
                     Console.Write("Please input a number and I'll show you how many times it appears: ");
                     int numToCount = Convert.ToInt32(Console.ReadLine());
                     int count = 0;
+
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine();
@@ -155,12 +156,92 @@ namespace Part_7_lists_assignment
         public static void Veggies()
         {
             List<string> veggies = new List<string>() {"CARROT", "BEET", "CELERY", "RADISH", "CABBAGE"};
-            foreach (string v in veggies)
+            bool done = false;
+            int stuck = 0;
+            string release;
+            while (!done)
             {
-                Console.WriteLine(v);
+                Console.WriteLine();
+                Console.WriteLine();
+                for (int i = 0; i < veggies.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1} {veggies[i]}");
+                }
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Please select one of the following:");
+                Console.WriteLine("1. Remove (number)");
+                Console.WriteLine("2. Remove (name)");
+                Console.WriteLine("3. Search");
+                Console.WriteLine("4. Add");
+                Console.WriteLine("5. Sort");
+                Console.WriteLine("6. Clear");
+                Console.WriteLine("7. Quit");
+                int select = Convert.ToInt32(Console.ReadLine());
+                while (select == 1)
+                {
+                    Console.Write("Pick a number and I'll remove that item from the list: ");
+                    int remove1 = Convert.ToInt32(Console.ReadLine());
+                    remove1 = remove1 - 1;
+                    if (remove1 >= 0 && remove1 <= veggies.Count)
+                    {
+                        veggies.RemoveAt(remove1);
+                        select = 0;
+                    }
+                    else if (remove1 <= -1 || remove1 >= (veggies.Count + 1))
+                    {
+                        Console.WriteLine("INVALID NUMBER!");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                    }
+                }
+                while (select == 2)
+                {
+                    Console.Write("Pick a name and I'll remove that item from the list: ");
+                    string remove2 = Console.ReadLine().ToUpper();
+                    if (veggies.Contains(remove2))
+                    {
+                        veggies.Remove(remove2);
+                        select = 0;
+                    }
+                    else if (!veggies.Contains(remove2))
+                    {
+                        Console.WriteLine("INVALID NAME!");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        stuck = stuck + 1;
+                        if (stuck == 20)
+                        {
+                            Console.WriteLine("Are you stuck? If so please type Y if not type N: ");
+                            release = Console.ReadLine().ToUpper();
+                            if (release == "Y")
+                            {
+                                select = 0;
+                            }
+                            else
+                            {
+                                stuck = 0;
+                            }
+                        }
+                    }
+                }
+                while (select == 3)
+                {
+                    Console.Write("Pick an item by name and I'll search for it: ");
+                    string search = Console.ReadLine().ToUpper();
+                    if (veggies.Contains(search))
+                    {
+                        Console.WriteLine($"{veggies} {search}");
+                        select = 0;
+                    }
+                    else if (!veggies.Contains(search))
+                    {
+                        Console.WriteLine("INVALID NAME!");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                    }
+                }
             }
-            Console.WriteLine();
-            Console.WriteLine();
         }
     }
 }
