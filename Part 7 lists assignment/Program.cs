@@ -112,10 +112,23 @@ namespace Part_7_lists_assignment
                 }
                 else if (choose == 5)
                 {
-                    Console.Write("Please input a number and I'll show you how many times it appears: ");
-                    int numToCount = Convert.ToInt32(Console.ReadLine());
-                    int count = 0;
-
+                    bool ff = false;
+                    while (!ff)
+                    {
+                        Console.Write("Please input a number and I'll tell you if it's in the list: ");
+                        int numTC = Convert.ToInt32(Console.ReadLine());
+                        if (nums.Contains(numTC))
+                        {
+                            Console.WriteLine($"{numTC} is in the list.");
+                            ff = true;
+                        }
+                        else if (!nums.Contains(numTC))
+                        {
+                            Console.WriteLine($"{numTC} is not in the list.");
+                            Console.WriteLine();
+                            Console.WriteLine();
+                        }
+                    }
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine();
@@ -229,9 +242,10 @@ namespace Part_7_lists_assignment
                 {
                     Console.Write("Pick an item by name and I'll search for it: ");
                     string search = Console.ReadLine().ToUpper();
+                    Console.WriteLine();
                     if (veggies.Contains(search))
                     {
-                        Console.WriteLine($"{veggies} {search}");
+                        Console.Write($"{search} is in the list. it's number {veggies[](search).Count}");
                         select = 0;
                     }
                     else if (!veggies.Contains(search))
@@ -240,6 +254,52 @@ namespace Part_7_lists_assignment
                         Console.WriteLine();
                         Console.WriteLine();
                     }
+                }
+                while (select == 4)
+                {
+                    Console.Write("Write a name and I'll add that item from the list: ");
+                    string add = Console.ReadLine().ToUpper();
+                    if (!veggies.Contains(add))
+                    {
+                        veggies.Add(add);
+                        select = 0;
+                    }
+                    else if (veggies.Contains(add))
+                    {
+                        Console.WriteLine("INVALID! Already in list.");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        stuck = stuck + 1;
+                        if (stuck == 20)
+                        {
+                            Console.WriteLine("Are you stuck? If so please type Y if not type N: ");
+                            release = Console.ReadLine().ToUpper();
+                            if (release == "Y")
+                            {
+                                select = 0;
+                            }
+                            else
+                            {
+                                stuck = 0;
+                            }
+                        }
+                    }
+                }
+                while (select == 5)
+                {
+                    veggies.Sort();
+                    select = 0;
+                }
+                while (select == 6)
+                {
+                    veggies.Clear();
+                    select = 0;
+                }
+                while (select == 7)
+                {
+                    done = true;
+                    Console.WriteLine("Goodbye.");
+                    select = 0;
                 }
             }
         }
