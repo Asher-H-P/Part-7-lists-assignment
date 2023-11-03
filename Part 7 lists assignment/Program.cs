@@ -131,7 +131,6 @@ namespace Part_7_lists_assignment
                     }
                     Console.WriteLine();
                     Console.WriteLine();
-                    Console.WriteLine();
                 }
                 else if (choose == 6)
                 {
@@ -245,7 +244,7 @@ namespace Part_7_lists_assignment
                     Console.WriteLine();
                     if (veggies.Contains(search))
                     {
-                        Console.Write($"{search} is in the list. it's number {veggies[](search).Count}");
+                        Console.Write($"{search} is in the list. it's number {veggies.Count}");
                         select = 0;
                     }
                     else if (!veggies.Contains(search))
