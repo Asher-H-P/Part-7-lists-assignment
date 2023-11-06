@@ -244,7 +244,7 @@ namespace Part_7_lists_assignment
                     Console.WriteLine();
                     if (veggies.Contains(search))
                     {
-                        Console.Write($"{search} is in the list. it's number {veggies.Count}");
+                        Console.Write($"{search} is in the list. it's number {veggies.IndexOf(search) + 1}");
                         select = 0;
                     }
                     else if (!veggies.Contains(search))
@@ -252,6 +252,20 @@ namespace Part_7_lists_assignment
                         Console.WriteLine("INVALID NAME!");
                         Console.WriteLine();
                         Console.WriteLine();
+                        stuck = stuck + 1;
+                        if (stuck == 20)
+                        {
+                            Console.WriteLine("Are you stuck? If so please type Y if not type N: ");
+                            release = Console.ReadLine().ToUpper();
+                            if (release == "Y")
+                            {
+                                select = 0;
+                            }
+                            else
+                            {
+                                stuck = 0;
+                            }
+                        }
                     }
                 }
                 while (select == 4)
